@@ -1,6 +1,6 @@
 # CLAUDE.md — Contexto del Proyecto
 # Álgebra Lineal Visual con NumPy
-# Última actualización: 2026-03-07
+# Última actualización: 2026-03-08
 
 ---
 
@@ -18,7 +18,8 @@
 | **Fase del portafolio** | Fase 0 |
 | **Proyecto número** | Proyecto 0.1 |
 | **Fecha de inicio** | 2026-03-07 |
-| **Fecha objetivo de cierre** | 2026-03-21 |
+| **Fecha de cierre real** | 2026-03-08 |
+| **Estado** | ✅ COMPLETADO |
 
 ---
 
@@ -52,17 +53,24 @@ generados programáticamente para visualizar transformaciones lineales.
 
 ## 📈 ESTADO ACTUAL
 
-- **Última sesión:** 2026-03-07
-- **Próximo paso exacto:** Crear el primer notebook (01_transformaciones_lineales.ipynb)
-- **Bloqueado en:** Nada — proyecto recién iniciado
+- **Última sesión:** 2026-03-08
+- **Estado:** ✅ COMPLETADO
+- **Próximo paso:** Proyecto cerrado — pasar a Proyecto 0.2 EDA con Datos Sucios
+- **Bloqueado en:** Nada
 
 ---
 
 ## 📝 APRENDIZAJES
 
-> Se usarán para la sección "Lo que aprendí" del README final.
-
-- (pendiente — se llena durante el desarrollo)
+- Determinante = objeto geométrico (factor de área + orientación)
+- Multiplicación matricial no es conmutativa — el orden de transformaciones importa
+- Eigenvectors = direcciones invariantes; eigenvalores complejos = sin direcciones invariantes reales
+- Cizallamiento: caso canónico de matriz no diagonalizable (mult. geométrica < algebraica)
+- SVD generaliza descomposición espectral a toda matriz, sin restricciones
+- PCA = SVD sobre datos centrados; Scikit-learn usa SVD por estabilidad numérica ($\kappa(X^TX) = \kappa(X)^2$)
+- `NotebookEdit` genera metadata inválida en celdas insertadas — corregir con `nbformat` antes de ejecutar
+- `np.linalg.eigh` es preferible a `eig` para matrices simétricas
+- Vectorizar loops con `np.cumsum` en lugar de acumular listas
 
 ---
 
@@ -80,4 +88,4 @@ Ver perfil completo en: `../CLAUDE.md` (directorio padre)
 
 ---
 
-*Próxima actualización obligatoria: al terminar la próxima sesión de trabajo*
+*Proyecto cerrado el 2026-03-08. Próximo: Proyecto 0.2 — EDA con Datos Sucios.*

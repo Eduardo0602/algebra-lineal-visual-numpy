@@ -1,4 +1,4 @@
-# Datos (nunca subir datos crudos a GitHub)
+# Datos (nunca se sube datos crudos a GitHub)
 data/raw/*
 data/processed/*
 data/external/*

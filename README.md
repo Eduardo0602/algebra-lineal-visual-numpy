@@ -1,7 +1,7 @@
 # Álgebra Lineal Visual con NumPy
 
 > Implementación y visualización de conceptos fundamentales de álgebra lineal
-> usando Python puro — sin librerías de ML. La matemática primero, el código después.
+> usando Python puro — sin librerías de ML. Priorizando la familiaridad matemática con los conceptos primero, y el código después.
 
 ---
 
@@ -13,25 +13,23 @@ como objetos geométricos en el plano. Cada concepto aparece primero
 como ecuación en LaTeX, luego como implementación en NumPy,
 y finalmente como gráfico en Matplotlib.
 
-**¿Por qué este proyecto?** El 99% de los científicos de datos usan
-álgebra lineal como caja negra. Este notebook demuestra comprensión
+**¿Por qué este proyecto?** Un porcentaje de las personas que aspiran a ser científicos de datos usan el
+álgebra lineal únicamente como "caja negra". Este notebook demuestra comprensión
 real del fundamento matemático.
 
 ---
 
 ## Fundamento Matemático
 
-*(Esta sección es la firma del portafolio)*
-
 ### Transformaciones lineales
 
-Una función $T: \mathbb{R}^n \to \mathbb{R}^m$ es una **transformación lineal** si y solo si:
+Una aplicación $T: \mathbb{R}^n \to \mathbb{R}^m$ es una **transformación lineal** si y solo si:
 
 $$T(\alpha \mathbf{u} + \beta \mathbf{v}) = \alpha\, T(\mathbf{u}) + \beta\, T(\mathbf{v}) \quad \forall\, \mathbf{u}, \mathbf{v} \in \mathbb{R}^n,\; \forall\, \alpha, \beta \in \mathbb{R}$$
 
 Por el **Teorema de Representación Matricial**, existe una única $A \in \mathbb{R}^{m \times n}$ tal que
 $T(\mathbf{x}) = A\mathbf{x}$, cuyas columnas son las imágenes de los vectores canónicos:
-$A = [T(\mathbf{e}_1) \mid \cdots \mid T(\mathbf{e}_n)]$.
+$A = [T(\mathbf{e}_1) \mid \cdots \mid T(\mathbf{e}_n)]$, se llama también matriz asociada a la transformación lineal.
 
 El valor absoluto del determinante $|\det(A)|$ mide el **factor de cambio de área** bajo $T$;
 su signo indica si se preserva ($\det > 0$) o se invierte ($\det < 0$) la orientación.
@@ -125,8 +123,8 @@ jupyter notebook notebooks/
 
 ### Notebook 01 — Transformaciones lineales en $\mathbb{R}^2$
 
-- Se implementaron y visualizaron **7 familias de transformaciones**: rotación, reflexión sobre
-  eje $x$, reflexión sobre eje $y$, reflexión sobre $y = x$, escalado, proyección ortogonal y
+- Se implementaron y visualizaron **7 familias de transformaciones**: rotación, reflexión sobre el
+  eje $x$, reflexión sobre el eje $y$, reflexión sobre $y = x$, escalado, proyección ortogonal y
   cizallamiento, cada una con su fórmula matricial y su efecto sobre el cuadrado unitario.
 - Verificación numérica de propiedades algebraicas con errores del orden de $10^{-16}$:
   ortogonalidad ($R^T R = I$), involución ($S^2 = I$), idempotencia ($P^2 = P$).
@@ -142,21 +140,21 @@ jupyter notebook notebooks/
   (error $= 0$ para la matriz triangular del ejemplo).
 - Galería de eigenvectors para 4 tipos de matrices: triangular, simétrica, diagonal
   y cizallamiento. Este último ilustra el único caso con $\lambda = 1$ de multiplicidad
-  algebraica 2 pero multiplicidad geométrica 1 (no diagonalizable).
+  algebraica 2 pero multiplicidad geométrica 1 (es decir, no diagonalizable).
 - La **rotación de 45°** produce eigenvalores complejos $e^{\pm i\pi/4}$, confirmando que
   ningún vector real mantiene su dirección bajo una rotación pura.
 - Verificación de la **descomposición espectral** $A = \sum_i \lambda_i \mathbf{v}_i \mathbf{v}_i^T$
   con error $6.66 \times 10^{-16}$.
 - Visualización de la **convergencia al eigenvector dominante** bajo aplicaciones
   repetidas de $A$ (principio del Power Method).
-- Potencias de matrices vía diagonalización: $A^{10}$ calculado con error $< 6 \times 10^{-11}$
+- Potencias de matrices vía diagonalización: $A^{10}$ calculado con un error $< 6 \times 10^{-11}$
   respecto al resultado directo.
 
 ### Notebook 03 — SVD y compresión de imágenes
 
 - Demostración de la **interpretación geométrica de la SVD**: toda transformación lineal
   $2 \times 2$ equivale a rotación → escalado (elipse) → rotación.
-- Imagen sintética ($200 \times 300$ px): con solo $k = 2$ componentes se captura el
+- Imagen sintética ($200 \times 300$ px): vimos que con solo $k = 2$ componentes se captura el
   **98.86% de la energía** con 1.7% del almacenamiento original. Con $k = 5$: 99.78% de
   energía, 4.2% del almacenamiento.
 - Visualización capa por capa: las primeras capas capturan estructura global, las últimas
@@ -171,39 +169,38 @@ jupyter notebook notebooks/
 
 ## Lo que aprendí
 
-1. **El determinante es un objeto geométrico, no un número arbitrario.** Mide exactamente
+1. **El determinante es un objeto geométrico, no un número arbitrario.** Y mide exactamente
    cuánto cambia el área de cualquier región bajo la transformación, y su signo codifica
    si la orientación se conserva o se invierte.
 
-2. **La multiplicación matricial no es conmutativa — y eso tiene consecuencias reales.**
+2. **La multiplicación matricial no es conmutativa, lo cual tiene consecuencias reales.**
    Rotar 45° y luego escalar no es lo mismo que escalar y luego rotar. Esto importa cada
-   vez que se encadenan transformaciones en Data Science (preprocesamiento, PCA, etc.).
+   vez que se encadenan transformaciones en Ciencia de Datos (preprocesamiento, PCA, etc.).
 
 3. **Los eigenvectors son las "direcciones invariantes" de una transformación.** El concepto
    algebraico ($A\mathbf{v} = \lambda\mathbf{v}$) y el geométrico (solo se escala, nunca se
-   desvía) son exactamente la misma cosa. Visualizarlo lo hace irrefutable.
+   desvía) son exactamente la misma cosa. Visualizarlo lo hace más comprensible e intuitivo.
 
 4. **Una rotación pura no tiene eigenvectors reales.** Eigenvalores complejos no son
    un problema técnico, son la señal de que ninguna dirección real es invariante.
-   Tiene sentido: una rotación mueve todo.
+   Tiene sentido, pues una rotación mueve todo.
 
 5. **La no diagonalizabilidad es un fenómeno concreto.** El cizallamiento tiene
-   $\lambda = 1$ con multiplicidad algebraica 2 pero multiplicidad geométrica 1.
-   No es diagonalizable. Esto no es solo teoría: NumPy produce los valores correctos pero
+   $\lambda = 1$ con multiplicidad algebraica 2 pero multiplicidad geométrica 1. Lo cual implica que no es diagonalizable. Esto no se queda en la teoría: NumPy produce los valores correctos pero
    el resultado no se puede usar como si la matriz fuera diagonal.
 
 6. **La SVD generaliza la descomposición espectral a cualquier matriz.** No importa si es
    cuadrada, rectangular, singular o no. Toda matriz admite la factorización $U \Sigma V^T$.
-   Es la herramienta más universal del álgebra lineal.
+   Conviertiéndose así en la herramienta más universal del álgebra lineal.
 
-7. **PCA es SVD aplicada a datos centrados — no es una caja negra.** Las componentes
+7. **PCA es SVD aplicada a datos centrados.** Las componentes
    principales son los vectores singulares derechos de la matriz de datos. Scikit-learn
    usa SVD internamente porque es numéricamente más estable que calcular $X^T X$ y luego
    sus eigenvalores.
 
-8. **La aritmética de punto flotante es precisa pero no exacta.** Errores del orden de
+8. **La aritmética de punto flotante es precisa, pero no exacta.** Errores del orden de
    $10^{-16}$ son inevitables. La clave es saber cuándo son aceptables y cuándo no.
 
 ---
 
-*Proyecto 0.1 del portafolio "De Matemático a Data Scientist" — Fase 0*
+*Este es el Proyecto 0.1 de mi portafolio "De Matemático a Data Scientist" — Fase 0*

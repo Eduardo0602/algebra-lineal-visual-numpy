@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(\"$JUPYTER\":*)"
+      "Bash(\"$JUPYTER\":*)",
+      "Bash(python:*)"
     ]
   }
 }

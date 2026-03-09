@@ -1,7 +1,7 @@
 # Álgebra Lineal Visual con NumPy
 
 > Implementación y visualización de conceptos fundamentales de álgebra lineal
-> usando Python puro — sin librerías de ML. Priorizando la familiaridad matemática con los conceptos primero, y el código después.
+> usando Python puro, sin librerías de ML. Priorizando la familiaridad matemática con los conceptos primero, y el código después.
 
 ---
 
@@ -25,7 +25,7 @@ real del fundamento matemático.
 
 Una aplicación $T: \mathbb{R}^n \to \mathbb{R}^m$ es una **transformación lineal** si y solo si:
 
-$$T(\alpha \mathbf{u} + \beta \mathbf{v}) = \alpha\, T(\mathbf{u}) + \beta\, T(\mathbf{v}) \quad \forall\, \mathbf{u}, \mathbf{v} \in \mathbb{R}^n,\; \forall\, \alpha, \beta \in \mathbb{R}$$
+$$T(\alpha \mathbf{u} + \beta \mathbf{v}) = \alpha\ T(\mathbf{u}) + \beta\ T(\mathbf{v}) \quad \forall\ \mathbf{u}, \mathbf{v} \in \mathbb{R}^n\; \forall\ \alpha, \beta \in \mathbb{R}$$
 
 Por el **Teorema de Representación Matricial**, existe una única $A \in \mathbb{R}^{m \times n}$ tal que
 $T(\mathbf{x}) = A\mathbf{x}$, cuyas columnas son las imágenes de los vectores canónicos:

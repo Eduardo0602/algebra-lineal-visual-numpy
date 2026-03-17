@@ -46,7 +46,7 @@ Un vector $\mathbf{v} \neq \mathbf{0}$ es **vector propio** de $A$ con **valor p
 
 $$A\mathbf{v} = \lambda \mathbf{v}$$
 
-Los valores propios son las raíces del **polinomio característico** $p(\lambda) = \det(A - \lambda I) = 0$. Propiedades fundamentales: $\sum_i \lambda_i = \operatorname{tr}(A)$ y $\prod_i \lambda_i = \det(A)$.
+Los valores propios son las raíces del **polinomio característico** $p(\lambda) = \det(A - \lambda I) = 0$. Propiedades fundamentales: $\sum_i \lambda_i = \text{tr}(A)$ y $\prod_i \lambda_i = \det(A)$
 
 Para matrices **simétricas** ($A = A^T$), el **Teorema Espectral** garantiza: eigenvalores reales, eigenvectors ortogonales, y la descomposición $A = \sum_i \lambda_i \mathbf{v}_i \mathbf{v}_i^T$.
 
@@ -108,7 +108,6 @@ algebra-lineal-visual-numpy/
 │   └── visualization.py     # Funciones reutilizables: dibujar_vector, configurar_ejes, comprimir_svd, slugify
 ├── reports/
 │   └── figures/             # 29 visualizaciones exportadas en PNG
-├── CLAUDE.md
 ├── README.md
 ├── requirements.txt
 └── .gitignore
